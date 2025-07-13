@@ -8,7 +8,7 @@ packages = st.number_input("Packages Processed", min_value=0, value=None)
 hours = st.number_input("Hours", min_value=0.0, format="%.2f", value=None)
 target = st.number_input("Plan PPH", min_value=1, value=None)
 
-if hours > 0:
+if packages is not None and hours is not None and target is not None and hours > 0:
     actual_pph = packages / hours
     excess_hours = (packages / target) - hours
     st.metric("Actual PPH", f"{actual_pph:.2f}")
@@ -18,6 +18,7 @@ if hours > 0:
     else:
         st.success(f"On Plan: {excess_hours:.2f} hours")
 else:
-    st.write("Enter hours to calculate.")
+    st.write("Please enter all values to calculate.")
+
 
 
