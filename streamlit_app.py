@@ -1,10 +1,10 @@
 import streamlit as st
 
-st.title("Live Loader Efficiency Tracker")
+st.title("Load PPH Tracker")
 
 packages = st.number_input("Packages Loaded", min_value=0)
 hours = st.number_input("Hours Loaded", min_value=0.0, format="%.2f")
-target = st.number_input("Target PPH", min_value=1)
+target = st.number_input("Target PPH", min_value=1, value=350)
 
 if hours > 0:
     actual_pph = packages / hours
@@ -17,3 +17,4 @@ if hours > 0:
         st.success(f"Saved: {excess_hours:.2f} hours")
 else:
     st.write("Enter hours to calculate.")
+
