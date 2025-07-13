@@ -14,9 +14,9 @@ if hours > 0:
     st.metric("Actual PPH", f"{actual_pph:.2f}")
 
     if excess_hours < 0:
-        st.error(f"Cost: {abs(excess_hours):.2f} hours")
+        st.error(f"Off Plan: {abs(excess_hours):.2f} hours")
     else:
-        st.success(f"Saved: {excess_hours:.2f} hours")
+        st.success(f"On Plan: {excess_hours:.2f} hours")
 else:
     st.write("Enter hours to calculate.")
 
