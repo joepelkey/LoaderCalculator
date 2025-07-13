@@ -1,5 +1,7 @@
 import streamlit as st
 
+st.set_page_config(page_title="Load PPH Tracker")
+
 st.title("Load PPH Tracker")
 
 packages = st.number_input("Packages Loaded", min_value=0)
@@ -12,9 +14,10 @@ if hours > 0:
     st.metric("Actual PPH", f"{actual_pph:.2f}")
 
     if excess_hours < 0:
-        st.error(f"Off Plan: {abs(excess_hours):.2f} hours")
+        st.error(f"Cost: {abs(excess_hours):.2f} hours")
     else:
-        st.success(f"On Plan: {excess_hours:.2f} hours")
+        st.success(f"Saved: {excess_hours:.2f} hours")
 else:
     st.write("Enter hours to calculate.")
+
 
